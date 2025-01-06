@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+  oziclouds:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oziclouds
+    container_name: oziclouds-container
+    ports:
+      - "80:80"
+    networks:
+      - oziclouds-network
+    restart: unless-stopped
+
+networks:
+  oziclouds-network:
+    driver: bridge
