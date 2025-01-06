@@ -22,8 +22,8 @@ FROM nginx:alpine
 # Copia los archivos generados por Angular al directorio de Nginx
 COPY --from=builder /app/dist/oziclouds /usr/share/nginx/html
 
-# Expone el puerto 80
+# Asegúrate de que el puerto expuesto sea el 80 (el puerto por defecto de Nginx)
 EXPOSE 80
 
-# Comando para iniciar Nginx
+# Comando para iniciar Nginx (sin necesidad de cambiar la configuración de Nginx si no es necesario)
 CMD ["nginx", "-g", "daemon off;"]
